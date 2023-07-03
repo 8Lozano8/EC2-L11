@@ -17,7 +17,7 @@ import java.lang.String;
 import java.lang.Object;
 
 @Controller 
-@RequestMapping(path="/cursos") 
+@RequestMapping(path="/idat/cursos") 
 public class MainController {
   @Autowired 
   private CursosRepository cursosRepository;
@@ -27,7 +27,7 @@ public class MainController {
 
 
 
-  @PostMapping(path="/add") // POST http://localhost:8080/demo/add
+  @PostMapping(path="/nuevo")
   public @ResponseBody String addNewCursos (@RequestParam String nombre, @RequestParam Integer creditos) {
 
     Cursos n = new Cursos();
@@ -37,17 +37,12 @@ public class MainController {
     return "Saved";
   }
 
-  @GetMapping(path="/all") // GET http://localhost:8080/demo/all
+  @GetMapping(path="/listar")
   public @ResponseBody Iterable<Cursos> getAllCursos() {
     return cursosRepository.findAll();
   }
 
-  @GetMapping(path="/ver/{id}") // GET http://localhost:8080/demo/all
-  public @ResponseBody Cursos getCursos(@PathVariable("id") Integer id) {
-    return cursosRepository.findById(id).orElse(null);
-  }
-
-  @DeleteMapping(path="/del")
+  @DeleteMapping(path="/eliminar")
   public @ResponseBody String deleteCursos(@RequestParam Integer id) {
     Cursos cursos = cursosRepository.findById(id).orElse(null);
     if (cursos != null) {
