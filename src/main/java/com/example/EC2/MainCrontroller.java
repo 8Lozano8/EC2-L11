@@ -1,4 +1,5 @@
 package com.example.EC2;
+
 import javax.management.ConstructorParameters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -51,9 +52,5 @@ public class MainController {
     }
     return "Not found";
   }
-
-
-
-
 
 }
