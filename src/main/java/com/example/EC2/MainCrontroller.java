@@ -18,7 +18,7 @@ import java.lang.String;
 import java.lang.Object;
 
 @Controller 
-@RequestMapping(path="/idat/cursos") 
+@RequestMapping(path="/api/cursos") 
 public class MainController {
   @Autowired 
   private CursosRepository cursosRepository;
